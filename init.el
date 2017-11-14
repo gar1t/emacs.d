@@ -66,7 +66,9 @@
 (savehist-mode 1)
 (set-default 'truncate-lines t)
 (setq beacon-color "#ffff00")
+(setq column-number-mode t)
 (setq compilation-ask-about-save nil)
+(setq compilation-scroll-output 'first-error)
 (setq-default indent-tabs-mode nil)
 (smart-mode-line-enable)
 (volatile-highlights-mode t)
@@ -108,7 +110,8 @@
 (global-set-key (kbd "ESC <up>") 'move-text-up)
 (global-set-key (kbd "ESC <down>") 'move-text-down)
 (global-set-key (kbd "C-k") 'crux-smart-kill-line)
-(global-set-key (kbd "C-c d") 'crux-delete-file-and-buffer)
+(global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
+(global-set-key (kbd "C-c k") 'crux-delete-file-and-buffer)
 (global-set-key (kbd "C-c r") 'crux-rename-file-and-buffer)
 
 ;;===================================================================
