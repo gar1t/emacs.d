@@ -58,7 +58,6 @@
 ;;===================================================================
 
 (beacon-mode 1)
-(setq beacon-color "#ffff00")
 (browse-kill-ring-default-keybindings)
 (crux-reopen-as-root-mode)
 (global-set-key [remap kill-ring-save] 'easy-kill)
@@ -66,6 +65,9 @@
 (menu-bar-mode -1)
 (savehist-mode 1)
 (set-default 'truncate-lines t)
+(setq beacon-color "#ffff00")
+(setq compilation-ask-about-save nil)
+(setq-default indent-tabs-mode nil)
 (smart-mode-line-enable)
 (volatile-highlights-mode t)
 
