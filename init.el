@@ -16,7 +16,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#050505" :foreground "#c5c8c6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default")))))
+ '(default ((t (:inherit nil :stipple nil :background "#050505" :foreground "#c5c8c6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
+ '(compilation-error ((t (:inherit error :foreground "red"))))
+ '(markdown-pre-face ((t (:inherit (markdown-code-face font-lock-constant-face) :foreground "color-250")))))
 
 ;;===================================================================
 ;; Package support
@@ -69,6 +71,7 @@
 (setq column-number-mode t)
 (setq compilation-ask-about-save nil)
 (setq compilation-scroll-output 'first-error)
+(setq make-backup-files nil)
 (setq-default indent-tabs-mode nil)
 (smart-mode-line-enable)
 (volatile-highlights-mode t)
