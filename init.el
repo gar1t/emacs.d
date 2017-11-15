@@ -41,6 +41,7 @@
 	smart-mode-line
 	undo-tree
 	volatile-highlights
+        yaml-mode
 	))
 
 (add-to-list 'package-archives
