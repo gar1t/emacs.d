@@ -1,26 +1,4 @@
 ;;===================================================================
-;; Theme customizations
-;;===================================================================
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes
-   (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#050505" :foreground "#c5c8c6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
- '(compilation-error ((t (:inherit error :foreground "red"))))
- '(markdown-pre-face ((t (:inherit (markdown-code-face font-lock-constant-face) :foreground "color-250")))))
-
-;;===================================================================
 ;; Package support
 ;;===================================================================
 
@@ -32,7 +10,6 @@
 	browse-kill-ring
 	color-theme-sanityinc-tomorrow
 	crux
-	easy-kill
 	git-timemachine
 	magit
 	markdown-mode
@@ -40,7 +17,6 @@
 	savehist
 	smart-mode-line
 	undo-tree
-	volatile-highlights
         web-mode
         yaml-mode
 	))
@@ -61,29 +37,46 @@
 ;; General config
 ;;===================================================================
 
-(beacon-mode 1)
-(browse-kill-ring-default-keybindings)
-(crux-reopen-as-root-mode)
-(global-set-key [remap kill-ring-save] 'easy-kill)
-(global-undo-tree-mode)
+;; UI
 (menu-bar-mode -1)
-(savehist-mode 1)
 (set-default 'truncate-lines t)
-(setq beacon-color "#ffff00")
 (setq column-number-mode t)
-(setq compilation-ask-about-save nil)
-(setq compilation-scroll-output 'first-error)
+
+;; Smart mode line
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
+
+;; Beacon
+(beacon-mode 1)
+(setq beacon-color "#ffff00")
+
+;; Tabs to spaces
+(setq-default indent-tabs-mode nil)
+
+;; Brose kill ring
+(browse-kill-ring-default-keybindings)
+
+;; Undo tree
+(global-undo-tree-mode)
+
+;; Disable backups
 (setq make-backup-files nil)
+
+;; Web mode indents
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
-(setq-default indent-tabs-mode nil)
-(smart-mode-line-enable)
-(volatile-highlights-mode t)
 
-;;===================================================================
-;; Close on successful compile
-;;===================================================================
+;; Compilation window
+(setq compilation-ask-about-save nil)
+(setq compilation-scroll-output 'first-error)
 
+;; History
+(savehist-mode 1)
+
+;; Crux
+(require 'crux)
+
+;; Close compile on success
 (defun compilation-exit-autoclose (status code msg)
   (when (and (eq status 'exit) (zerop code))
     (bury-buffer)
@@ -91,8 +84,11 @@
   (cons msg code))
 (setq compilation-exit-message-function 'compilation-exit-autoclose)
 
+;; Delete trailing whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;;===================================================================
-;; File name mode associations
+;; File associations
 ;;===================================================================
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
@@ -116,13 +112,29 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "ESC <up>") 'move-text-up)
 (global-set-key (kbd "ESC <down>") 'move-text-down)
-(global-set-key (kbd "C-k") 'crux-smart-kill-line)
-(global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
-(global-set-key (kbd "C-c k") 'crux-delete-file-and-buffer)
-(global-set-key (kbd "C-c r") 'crux-rename-file-and-buffer)
+(global-set-key (kbd "C-k") #'crux-smart-kill-line)
+(global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
+(global-set-key (kbd "C-c k") #'crux-delete-file-and-buffer)
+(global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
 
 ;;===================================================================
-;; Other
+;; Customizations
 ;;===================================================================
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
+ '(custom-safe-themes
+   (quote
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#050505" :foreground "#c5c8c6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
+ '(compilation-error ((t (:inherit error :foreground "red"))))
+ '(markdown-pre-face ((t (:inherit (markdown-code-face font-lock-constant-face) :foreground "color-250")))))
