@@ -41,6 +41,7 @@
 	smart-mode-line
 	undo-tree
 	volatile-highlights
+        web-mode
         yaml-mode
 	))
 
@@ -73,6 +74,8 @@
 (setq compilation-ask-about-save nil)
 (setq compilation-scroll-output 'first-error)
 (setq make-backup-files nil)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
 (setq-default indent-tabs-mode nil)
 (smart-mode-line-enable)
 (volatile-highlights-mode t)
