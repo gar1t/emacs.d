@@ -10,6 +10,7 @@
 	browse-kill-ring
 	color-theme-sanityinc-tomorrow
 	crux
+        edit-indirect
 	git-timemachine
 	magit
 	markdown-mode
