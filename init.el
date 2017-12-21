@@ -120,6 +120,7 @@
 (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c k") #'crux-delete-file-and-buffer)
 (global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
+(global-set-key (kbd "C-c /") #'web-mode-element-close)
 
 ;;===================================================================
 ;; Customizations
