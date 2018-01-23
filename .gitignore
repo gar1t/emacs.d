@@ -1,3 +1,4 @@
-auto-save-list
-elpa
-history
+/auto-save-list
+/elpa
+/history
+/tramp

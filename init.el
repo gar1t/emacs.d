@@ -67,6 +67,8 @@
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
+(setq web-mode-style-padding 0)
+(setq web-mode-script-padding 0)
 (setq js-indent-level 2)
 
 ;; Compilation window
@@ -90,12 +92,18 @@
 ;; Delete trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Highlight long lines
+(setq whitespace-line-column 80)
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 ;;===================================================================
 ;; File associations
 ;;===================================================================
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("BUILD\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("WORKSPACE\\'" . python-mode))
