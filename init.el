@@ -157,4 +157,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "color-16" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(compilation-error ((t (:inherit error :foreground "red"))))
+ '(markdown-inline-code-face ((t (:inherit nil :foreground "color-34"))))
+ '(markdown-link-face ((t (:foreground "#81a2be" :underline nil))))
  '(markdown-pre-face ((t (:inherit font-lock-constant-face :foreground "color-245")))))
