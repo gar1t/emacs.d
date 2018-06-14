@@ -1,0 +1,40 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("partials"
+ (filename . "~/SCM/guild.ai/src/partials/")
+ (front-context-string . "banner-header.ht")
+ (rear-context-string . "02 Feb 24 10:51 ")
+ (position . 245))
+("faq.md"
+ (filename . "~/SCM/guild.ai/pages/faq.md")
+ (front-context-string . "\n\n## Troubleshoo")
+ (rear-context-string . " multiple times.")
+ (position . 1046))
+("js"
+ (filename . "~/SCM/guild.ai/src/assets/js/theDocs.js")
+ (front-context-string . "function trySmoo")
+ (rear-context-string)
+ (position . 1))
+("docs"
+ (filename . "~/SCM/guild.ai/pages/docs/")
+ (front-context-string . "tutorials\n  drwx")
+ (rear-context-string . "96 Feb  2 13:12 ")
+ (position . 958))
+("tutorials"
+ (filename . "~/SCM/guild.ai/pages/docs/tutorials/")
+ (front-context-string . "guild-from-scrat")
+ (rear-context-string . "47 Jan 30 21:13 ")
+ (position . 253))
+("pages"
+ (filename . "~/SCM/guild.ai/pages/")
+ (front-context-string . "docs\n  -rw-r--r-")
+ (rear-context-string . "96 Feb  2 12:36 ")
+ (position . 296))
+("css"
+ (filename . "~/SCM/guild.ai/src/assets/css/")
+ (front-context-string . "_alerts.scss\n  -")
+ (rear-context-string . "66 Feb  2 15:42 ")
+ (position . 255))
+)

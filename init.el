@@ -120,6 +120,7 @@
 (global-set-key (kbd "C-x RET") 'compile)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
 (global-set-key (kbd "C-x l") 'ibuffer)
+(global-set-key (kbd "C-x m") 'bookmark-jump)
 (global-set-key (kbd "C-x f") 'find-file-at-point)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "ESC <up>") 'move-text-up)
@@ -149,7 +150,8 @@
  '(grep-find-ignored-files
    (quote
     (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" "*.map")))
- '(magit-dispatch-arguments nil))
+ '(magit-dispatch-arguments nil)
+ '(markdown-fontify-code-blocks-natively t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -157,6 +159,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "color-16" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(compilation-error ((t (:inherit error :foreground "red"))))
+ '(markdown-code-face ((t (:inherit fixed-pitch :background "color-233" :foreground "#b294bb"))))
  '(markdown-inline-code-face ((t (:inherit nil :foreground "color-34"))))
  '(markdown-link-face ((t (:foreground "#81a2be" :underline nil))))
  '(markdown-pre-face ((t (:inherit font-lock-constant-face :foreground "color-245")))))
