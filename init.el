@@ -93,7 +93,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Highlight long lines
-(setq whitespace-line-column 80)
+(setq whitespace-line-column 88)
 (setq whitespace-style '(face lines-tail))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
@@ -118,18 +118,21 @@
 ;;===================================================================
 
 (global-set-key (kbd "C-x RET") 'compile)
-(global-set-key (kbd "M-/") 'undo-tree-redo)
 (global-set-key (kbd "C-x l") 'ibuffer)
 (global-set-key (kbd "C-x m") 'bookmark-jump)
 (global-set-key (kbd "C-x f") 'find-file-at-point)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "ESC <up>") 'move-text-up)
-(global-set-key (kbd "ESC <down>") 'move-text-down)
+(global-set-key (kbd "M-/") 'undo-tree-redo)
+(global-set-key (kbd "M-s s") 'helm-ag)
+(global-set-key (kbd "M-<up>") 'move-text-up)
+(global-set-key (kbd "M-<down>") 'move-text-down)
 (global-set-key (kbd "C-k") #'crux-smart-kill-line)
 (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c k") #'crux-delete-file-and-buffer)
 (global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
 (global-set-key (kbd "C-c /") #'web-mode-element-close)
+(global-set-key (kbd "C-c f") 'python-black-buffer)
+(global-set-key (kbd "C-c g") 'python-black-region)
 
 ;;===================================================================
 ;; Customizations
@@ -151,7 +154,10 @@
    (quote
     (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" "*.map")))
  '(magit-dispatch-arguments nil)
- '(markdown-fontify-code-blocks-natively t))
+ '(markdown-fontify-code-blocks-natively t)
+ '(package-selected-packages
+   (quote
+    (helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
