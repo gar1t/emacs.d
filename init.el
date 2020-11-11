@@ -11,6 +11,7 @@
 	color-theme-sanityinc-tomorrow
 	crux
         edit-indirect
+        elpy
 	git-timemachine
 	magit
 	markdown-mode
@@ -97,6 +98,16 @@
 (setq whitespace-style '(face lines-tail))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
+;; Elpy
+(elpy-enable)
+(define-key elpy-mode-map (kbd "M-<left>") nil)
+(define-key elpy-mode-map (kbd "M-<right>") nil)
+(add-hook 'elpy-mode-hook
+          (lambda ()
+            (setq company-idle-delay 999)
+            )
+          )
+
 ;;===================================================================
 ;; File associations
 ;;===================================================================
@@ -108,10 +119,8 @@
 (add-to-list 'auto-mode-alist '("BUILD\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("WORKSPACE\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("\\.bzl\\'" . python-mode))
-(add-to-list 'auto-mode-alist '("MODEL\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("MODELS\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("PACKAGE\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
+(add-to-list 'auto-mode-alist '("GUILD_COMMENT\\'" . yaml-mode))
 
 ;;===================================================================
 ;; Key bindings
@@ -126,13 +135,16 @@
 (global-set-key (kbd "M-s s") 'helm-ag)
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
+(global-set-key (kbd "M-RET") 'company-complete)
 (global-set-key (kbd "C-k") #'crux-smart-kill-line)
+(global-set-key (kbd "C-c c") 'comment-line)
 (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c k") #'crux-delete-file-and-buffer)
 (global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
 (global-set-key (kbd "C-c /") #'web-mode-element-close)
 (global-set-key (kbd "C-c f") 'python-black-buffer)
 (global-set-key (kbd "C-c g") 'python-black-region)
+(global-set-key (kbd "C-c C-_") 'flymake-show-diagnostics-buffer)
 
 ;;===================================================================
 ;; Customizations
@@ -143,16 +155,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-clang-begin-after-member-access t)
+ '(company-idle-delay 999)
+ '(company-minimum-prefix-length 999)
+ '(company-tooltip-idle-delay 999)
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes
    (quote
     ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+ '(eldoc-echo-area-use-multiline-p nil)
+ ;;'(eldoc-idle-delay 999)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(grep-find-ignored-files
    (quote
     (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" "*.map")))
+ '(indent-tabs-mode nil)
  '(magit-dispatch-arguments nil)
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
@@ -165,6 +184,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "color-16" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(compilation-error ((t (:inherit error :foreground "red"))))
+ '(highlight-indentation-current-column-face ((t nil)))
+ '(highlight-indentation-face ((t nil)))
  '(markdown-code-face ((t (:inherit fixed-pitch :background "color-233" :foreground "#b294bb"))))
  '(markdown-inline-code-face ((t (:inherit nil :foreground "color-34"))))
  '(markdown-link-face ((t (:foreground "#81a2be" :underline nil))))
