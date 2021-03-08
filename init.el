@@ -107,6 +107,7 @@
             (setq company-idle-delay 999)
             )
           )
+(setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
 
 ;;===================================================================
 ;; File associations
@@ -164,7 +165,7 @@
    (quote
     ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(eldoc-echo-area-use-multiline-p nil)
- ;;'(eldoc-idle-delay 999)
+ '(eldoc-idle-delay 999)
  '(grep-find-ignored-directories
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
