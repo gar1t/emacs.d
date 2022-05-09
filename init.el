@@ -12,6 +12,7 @@
 	crux
         edit-indirect
         elpy
+        ess
 	git-timemachine
 	magit
 	markdown-mode
@@ -177,7 +178,7 @@
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
    (quote
-    (helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon))))
+    (bash-completion typescript-mode ess helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
