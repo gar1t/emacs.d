@@ -61,6 +61,7 @@
 
 ;; Undo tree
 (global-undo-tree-mode)
+(setq undo-tree-auto-save-history nil)
 
 ;; Disable backups
 (setq make-backup-files nil)
