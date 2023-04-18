@@ -49,6 +49,9 @@
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
 
+;; Autofill
+(setq-default fill-column 70)
+
 ;; Beacon
 (beacon-mode 1)
 (setq beacon-color "#ffff00")
@@ -110,6 +113,7 @@
             )
           )
 (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+(setq elpy-rpc-timeout 10)
 
 ;;===================================================================
 ;; File associations
@@ -134,6 +138,7 @@
 (global-set-key (kbd "C-x m") 'bookmark-jump)
 (global-set-key (kbd "C-x f") 'find-file-at-point)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x p") 'find-file-at-point)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
 (global-set-key (kbd "M-s s") 'helm-ag)
 (global-set-key (kbd "M-<up>") 'move-text-up)
@@ -145,8 +150,7 @@
 (global-set-key (kbd "C-c k") #'crux-delete-file-and-buffer)
 (global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
 (global-set-key (kbd "C-c /") #'web-mode-element-close)
-(global-set-key (kbd "C-c f") 'python-black-buffer)
-(global-set-key (kbd "C-c g") 'python-black-region)
+(global-set-key (kbd "C-c f") 'py-yapf-buffer)
 (global-set-key (kbd "C-c C-_") 'flymake-show-diagnostics-buffer)
 
 ;;===================================================================
@@ -176,7 +180,7 @@
  '(magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
-   '(bash-completion typescript-mode ess helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon)))
+   '(py-yapf bash-completion typescript-mode ess helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
