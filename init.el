@@ -150,7 +150,7 @@
 (global-set-key (kbd "C-c k") #'crux-delete-file-and-buffer)
 (global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
 (global-set-key (kbd "C-c /") #'web-mode-element-close)
-(global-set-key (kbd "C-c f") 'py-yapf-buffer)
+(global-set-key (kbd "C-c f") 'python-black-buffer)
 (global-set-key (kbd "C-c C-_") 'flymake-show-diagnostics-buffer)
 
 ;;===================================================================
@@ -180,7 +180,7 @@
  '(magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
-   '(py-yapf bash-completion typescript-mode ess helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon)))
+   '(nushell-mode nu-mode py-yapf bash-completion typescript-mode ess helm-ag python-black yaml-mode web-mode undo-tree smart-mode-line move-text markdown-mode magit git-timemachine edit-indirect crux color-theme-sanityinc-tomorrow browse-kill-ring beacon)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
